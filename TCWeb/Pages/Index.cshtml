@@ -1,0 +1,63 @@
+﻿@page "/Home/Index"
+@model TCWeb.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+<div class="container">
+    <h3>Agregar Candidato</h3>
+    <hr />
+    <br />
+    <form method="post" id="myform">
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Candidato.Nombre"></label><font color="red">&ensp;(*)</font>
+                <input asp-for="Candidato.Nombre" class="form-control" />
+                <span class="alert-danger" asp-validation-for="Candidato.Nombre"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Candidato.URL"></label>
+                <input asp-for="Candidato.URL" class="form-control" />
+                <span class="alert-danger" asp-validation-for="Candidato.URL"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Candidato.Puesto"></label>
+                <input asp-for="Candidato.Puesto" class="form-control" />
+                <span class="alert-danger" asp-validation-for="Candidato.Puesto"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Candidato.Numero"></label>
+                <input asp-for="Candidato.Numero" cl class="form-control" />
+                <span class="alert-danger" asp-validation-for="Candidato.Numero"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Candidato.Correo"></label>
+                <input asp-for="Candidato.Correo" class="form-control" />
+                <span class="alert-danger" asp-validation-for="Candidato.Correo"></span>
+            </div>
+        </div>
+        <br />
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+        <input type="button" class="btn btn-default" onclick="limpiar()" value="Limpiar">
+    </form>
+    <br />
+    <div>Ver todos los candidatos en: <a href="https://docs.google.com/spreadsheets/d/1IogHDaH16X7OVTx9pzlbWP7eEFumtHRwbsy2lxxIySI/edit?usp=sharing" target="_blank">BBDD Online</a></div>
+</div>
+
+<script>
+    function limpiar() {
+        document.getElementById('myform').reset();
+    }
+</script>
